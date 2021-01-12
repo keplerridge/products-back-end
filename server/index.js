@@ -7,17 +7,17 @@ const app = express();
 
 const {SERVER_PORT, CONNECTION_STRING} = process.env;
 
-app.use(express.json());
-
 massive({
     connectionString: CONNECTION_STRING,
     ssl: {
         rejectUnauthorized: false
     }
-}).then((db) => {
+}).then(db => {
     app.set('db', db);
     console.log('db connected')
-}).catch(err => console.log(err))
+}).catch(err => console.log(err));
+
+app.use(express.json());
 
 app.post('/api/products', products_controller.create);
 app.get('/api/products', products_controller.getAll);

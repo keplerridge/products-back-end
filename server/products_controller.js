@@ -25,7 +25,7 @@ module.exports = {
         const {name, description, price, image_url} = req.body;
 
         db.create_product([name, description, price, image_url])
-        .then(() => res.status(200))
+        .then(() => res.sendStatus(200))
         .catch(err => {
             res.status(500).send({ errorMessage: 'Sorry for the error, we are working to fix it.' });
             console.log(err)

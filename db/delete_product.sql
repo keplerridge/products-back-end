@@ -1,4 +1,2 @@
 DELETE FROM product
-WHERE id = ${id};
-
-SELECT * FROM product;
+WHERE product_id = $1;

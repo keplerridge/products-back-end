@@ -1,5 +1,3 @@
 UPDATE product
-SET description = ${description}
-WHERE id = ${id};
-
-SELECT * FROM product;
+SET description = $2
+WHERE product_id = $1;
